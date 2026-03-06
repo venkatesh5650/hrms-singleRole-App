@@ -1,0 +1,208 @@
+[2026-03-05T13:21:04.486Z] ERROR: Failed to start server: [{"name":"SequelizeConnectionRefusedError","parent":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true},"original":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}}]
+[2026-03-05T13:36:24.931Z] INFO: Database connection established successfully 
+[2026-03-05T13:36:24.960Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T13:36:24.960Z] INFO: Environment: production 
+[2026-03-05T13:36:24.961Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T13:39:19.846Z] INFO: Database connection established successfully 
+[2026-03-05T13:39:19.868Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T13:39:19.868Z] INFO: Environment: production 
+[2026-03-05T13:39:19.868Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T13:40:35.480Z] INFO: Database connection established successfully 
+[2026-03-05T13:40:35.502Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T13:40:35.502Z] INFO: Environment: production 
+[2026-03-05T13:40:35.503Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T15:05:18.755Z] INFO: Database connection established successfully 
+[2026-03-05T15:05:18.770Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T15:05:18.770Z] INFO: Environment: production 
+[2026-03-05T15:05:18.770Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T15:08:08.050Z] INFO: Database connection established successfully 
+[2026-03-05T15:08:08.156Z] INFO: Database models synchronized 
+[2026-03-05T15:08:08.176Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T15:08:08.176Z] INFO: Environment: production 
+[2026-03-05T15:08:08.176Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T15:28:52.609Z] INFO: Database connection established successfully 
+[2026-03-05T15:28:58.073Z] INFO: Database models synchronized 
+[2026-03-05T15:28:58.094Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T15:28:58.095Z] INFO: Environment: production 
+[2026-03-05T15:28:58.095Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T15:49:13.826Z] INFO: Database connection established successfully 
+[2026-03-05T15:49:15.478Z] INFO: Database models synchronized 
+[2026-03-05T15:49:15.488Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T15:49:15.488Z] INFO: Environment: production 
+[2026-03-05T15:49:15.488Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T15:53:35.004Z] INFO: Database connection established successfully 
+[2026-03-05T15:53:35.049Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-05T15:53:51.260Z] INFO: Database connection established successfully 
+[2026-03-05T15:53:51.276Z] ERROR: Failed to start server: [{"name":"SequelizeUniqueConstraintError","errors":[{"message":"id must be unique","type":"unique violation","path":"id","value":null,"origin":"DB","instance":null,"validatorKey":"not_unique","validatorName":null,"validatorArgs":[]}],"parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"INSERT INTO `users_backup` SELECT `id`, `organisation_id`, `name`, `role`, `email`, `password_hash`, `created_at`, `updated_at` FROM `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"INSERT INTO `users_backup` SELECT `id`, `organisation_id`, `name`, `role`, `email`, `password_hash`, `created_at`, `updated_at` FROM `users`;"},"fields":["id"],"sql":"INSERT INTO `users_backup` SELECT `id`, `organisation_id`, `name`, `role`, `email`, `password_hash`, `created_at`, `updated_at` FROM `users`;"}]
+[2026-03-05T15:55:34.384Z] INFO: Database connection established successfully 
+[2026-03-05T15:55:34.511Z] INFO: Database models synchronized 
+[2026-03-05T15:55:34.520Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T15:55:34.521Z] INFO: Environment: production 
+[2026-03-05T15:55:34.521Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T16:05:21.161Z] INFO: Database connection established successfully 
+[2026-03-05T16:05:22.767Z] INFO: Database models synchronized 
+[2026-03-05T16:05:22.776Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T16:05:22.777Z] INFO: Environment: production 
+[2026-03-05T16:05:22.777Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T16:10:59.282Z] INFO: Database connection established successfully 
+[2026-03-05T16:10:59.318Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-05T16:12:04.735Z] INFO: Database connection established successfully 
+[2026-03-05T16:12:04.818Z] INFO: Database models synchronized 
+[2026-03-05T16:12:04.828Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T16:12:04.828Z] INFO: Environment: production 
+[2026-03-05T16:12:04.828Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T16:21:59.322Z] INFO: Database connection established successfully 
+[2026-03-05T16:22:00.927Z] INFO: Database models synchronized 
+[2026-03-05T16:22:00.938Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T16:22:00.938Z] INFO: Environment: production 
+[2026-03-05T16:22:00.938Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-05T16:25:46.939Z] INFO: Database connection established successfully 
+[2026-03-05T16:25:46.973Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-05T16:28:04.818Z] INFO: Database connection established successfully 
+[2026-03-05T16:28:05.033Z] INFO: Database models synchronized 
+[2026-03-05T16:28:05.061Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-05T16:28:05.061Z] INFO: Environment: production 
+[2026-03-05T16:28:05.061Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T02:57:10.986Z] INFO: Database connection established successfully 
+[2026-03-06T02:57:16.950Z] INFO: Database models synchronized 
+[2026-03-06T02:57:16.970Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-06T02:57:16.970Z] INFO: Environment: production 
+[2026-03-06T02:57:16.971Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T03:02:25.734Z] INFO: Database connection established successfully 
+[2026-03-06T03:02:29.352Z] INFO: Database models synchronized 
+[2026-03-06T03:02:29.375Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-06T03:02:29.376Z] INFO: Environment: production 
+[2026-03-06T03:02:29.377Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T03:16:17.683Z] INFO: Database connection established successfully 
+[2026-03-06T03:16:17.755Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T03:19:11.765Z] INFO: Database connection established successfully 
+[2026-03-06T03:19:12.153Z] INFO: Database models synchronized 
+[2026-03-06T03:19:12.184Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-06T03:19:12.185Z] INFO: Environment: production 
+[2026-03-06T03:19:12.185Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T03:24:37.329Z] INFO: Database connection established successfully 
+[2026-03-06T03:24:41.263Z] INFO: Database models synchronized 
+[2026-03-06T03:24:41.285Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-06T03:24:41.286Z] INFO: Environment: production 
+[2026-03-06T03:24:41.286Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T07:25:41.915Z] INFO: Database connection established successfully 
+[2026-03-06T07:25:45.801Z] INFO: Database models synchronized 
+[2026-03-06T07:25:45.823Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-06T07:25:45.824Z] INFO: Environment: production 
+[2026-03-06T07:25:45.824Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T07:26:55.785Z] INFO: Database connection established successfully 
+[2026-03-06T07:26:59.702Z] INFO: Database models synchronized 
+[2026-03-06T07:26:59.722Z] INFO: Server running on http://0.0.0.0:5000 
+[2026-03-06T07:26:59.723Z] INFO: Environment: production 
+[2026-03-06T07:26:59.723Z] INFO: API endpoint: http://0.0.0.0:5000/api/v1 
+[2026-03-06T07:34:37.351Z] INFO: Database connection established successfully 
+[2026-03-06T07:34:41.276Z] INFO: Database models synchronized 
+[2026-03-06T07:34:41.305Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T07:34:41.305Z] INFO: Environment: production 
+[2026-03-06T07:34:41.306Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T07:38:48.294Z] INFO: Database connection established successfully 
+[2026-03-06T07:38:52.206Z] INFO: Database models synchronized 
+[2026-03-06T07:38:52.217Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T07:38:52.218Z] INFO: Environment: production 
+[2026-03-06T07:38:52.220Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T07:55:06.839Z] INFO: Database connection established successfully 
+[2026-03-06T07:55:10.830Z] INFO: Database models synchronized 
+[2026-03-06T07:55:10.837Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T07:55:10.838Z] INFO: Environment: production 
+[2026-03-06T07:55:10.838Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T08:17:56.732Z] INFO: Database connection established successfully 
+[2026-03-06T08:17:56.796Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T08:19:59.354Z] INFO: Database connection established successfully 
+[2026-03-06T08:19:59.512Z] INFO: Database models synchronized 
+[2026-03-06T08:19:59.520Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T08:19:59.520Z] INFO: Environment: production 
+[2026-03-06T08:19:59.521Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T08:23:01.739Z] INFO: Database connection established successfully 
+[2026-03-06T08:23:05.770Z] INFO: Database models synchronized 
+[2026-03-06T08:23:05.780Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T08:23:05.780Z] INFO: Environment: production 
+[2026-03-06T08:23:05.782Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T08:23:21.905Z] INFO: Database connection established successfully 
+[2026-03-06T08:23:21.979Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T08:24:08.396Z] INFO: Database connection established successfully 
+[2026-03-06T08:24:08.562Z] INFO: Database models synchronized 
+[2026-03-06T08:24:08.570Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T08:24:08.571Z] INFO: Environment: production 
+[2026-03-06T08:24:08.571Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T08:24:31.205Z] INFO: Database connection established successfully 
+[2026-03-06T08:24:35.276Z] INFO: Database models synchronized 
+[2026-03-06T08:24:35.287Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T08:24:35.288Z] INFO: Environment: production 
+[2026-03-06T08:24:35.289Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T08:46:28.077Z] INFO: Database connection established successfully 
+[2026-03-06T08:46:28.138Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T08:46:56.403Z] INFO: Database connection established successfully 
+[2026-03-06T08:46:56.594Z] INFO: Database models synchronized 
+[2026-03-06T08:46:56.601Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T08:46:56.602Z] INFO: Environment: production 
+[2026-03-06T08:46:56.602Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T09:02:03.239Z] INFO: Database connection established successfully 
+[2026-03-06T09:02:08.045Z] INFO: Database models synchronized 
+[2026-03-06T09:02:08.051Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T09:02:08.052Z] INFO: Environment: production 
+[2026-03-06T09:02:08.052Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T09:15:01.893Z] INFO: Database connection established successfully 
+[2026-03-06T09:15:01.962Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T09:15:32.309Z] INFO: Database connection established successfully 
+[2026-03-06T09:15:32.481Z] INFO: Database models synchronized 
+[2026-03-06T09:15:32.488Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T09:15:32.489Z] INFO: Environment: production 
+[2026-03-06T09:15:32.489Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T09:27:25.084Z] INFO: Database connection established successfully 
+[2026-03-06T09:27:29.917Z] INFO: Database models synchronized 
+[2026-03-06T09:27:29.922Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T09:27:29.923Z] INFO: Environment: production 
+[2026-03-06T09:27:29.923Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T09:37:11.282Z] INFO: Database connection established successfully 
+[2026-03-06T09:37:11.375Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T09:38:22.274Z] INFO: Database connection established successfully 
+[2026-03-06T09:38:22.483Z] INFO: Database models synchronized 
+[2026-03-06T09:38:22.494Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T09:38:22.495Z] INFO: Environment: production 
+[2026-03-06T09:38:22.495Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T09:49:28.490Z] INFO: Database connection established successfully 
+[2026-03-06T09:49:33.046Z] INFO: Database models synchronized 
+[2026-03-06T09:49:33.052Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T09:49:33.052Z] INFO: Environment: production 
+[2026-03-06T09:49:33.053Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T09:58:43.212Z] INFO: Database connection established successfully 
+[2026-03-06T09:58:43.295Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T09:58:57.078Z] INFO: Database connection established successfully 
+[2026-03-06T09:58:57.244Z] INFO: Database models synchronized 
+[2026-03-06T09:58:57.252Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T09:58:57.253Z] INFO: Environment: production 
+[2026-03-06T09:58:57.253Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T10:44:30.055Z] INFO: Database connection established successfully 
+[2026-03-06T10:44:31.799Z] INFO: Database models synchronized 
+[2026-03-06T10:44:31.802Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T10:44:31.803Z] INFO: Environment: production 
+[2026-03-06T10:44:31.803Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T10:48:41.966Z] INFO: Database connection established successfully 
+[2026-03-06T10:48:41.998Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T10:49:01.194Z] INFO: Database connection established successfully 
+[2026-03-06T10:49:01.307Z] INFO: Database models synchronized 
+[2026-03-06T10:49:01.310Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T10:49:01.310Z] INFO: Environment: production 
+[2026-03-06T10:49:01.310Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T10:56:56.978Z] INFO: Database connection established successfully 
+[2026-03-06T10:57:00.917Z] INFO: Database models synchronized 
+[2026-03-06T10:57:00.920Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T10:57:00.920Z] INFO: Environment: production 
+[2026-03-06T10:57:00.920Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T11:21:15.770Z] INFO: Database connection established successfully 
+[2026-03-06T11:21:15.863Z] ERROR: Failed to start server: [{"name":"SequelizeForeignKeyConstraintError","parent":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"original":{"errno":19,"code":"SQLITE_CONSTRAINT","sql":"DROP TABLE `users`;"},"sql":"DROP TABLE `users`;","parameters":{}}]
+[2026-03-06T11:21:32.318Z] INFO: Database connection established successfully 
+[2026-03-06T11:21:32.459Z] INFO: Database models synchronized 
+[2026-03-06T11:21:32.462Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T11:21:32.462Z] INFO: Environment: production 
+[2026-03-06T11:21:32.462Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T11:32:14.468Z] INFO: Database connection established successfully 
+[2026-03-06T11:32:16.491Z] INFO: Database models synchronized 
+[2026-03-06T11:32:16.494Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T11:32:16.494Z] INFO: Environment: production 
+[2026-03-06T11:32:16.494Z] INFO: API endpoint: http://localhost:5000/api/v1 
