@@ -1,14 +1,11 @@
-const { Team, Employee, User } = require('../models');
 const { Op } = require('sequelize');
+const { User, Employee, Team, EmployeeTeam } = require('../models');
 
 class TeamService {
   async createTeam(teamData) {
     try {
       const team = await Team.create(teamData);
-
-      return await Team.findByPk(team.id, {
-        include: [{ model: Employee, as: 'employees' }]
-      });
+      return await Team.findByPk(team.id);
     } catch (error) {
       throw new Error(error.message);
     }
@@ -24,11 +21,7 @@ class TeamService {
 
       await team.update(teamData);
 
-      return await Team.findByPk(id, {
-        include: [
-          { model: Employee, as: 'employees', include: [{ model: User, as: 'user' }] }
-        ]
-      });
+      return await Team.findByPk(id);
     } catch (error) {
       throw new Error(error.message);
     }
@@ -56,14 +49,6 @@ class TeamService {
         where,
         limit: parseInt(limit),
         offset: parseInt(offset),
-        include: [
-          { 
-            model: Employee, 
-            as: 'employees',
-            where: { is_active: true },
-            required: false
-          }
-        ],
         order: [['created_at', 'DESC']]
       });
 
@@ -81,9 +66,7 @@ class TeamService {
   async getTeamById(id) {
     try {
       const team = await Team.findByPk(id, {
-        include: [
-          { model: Employee, as: 'employees', include: [{ model: User, as: 'user' }] }
-        ]
+        include: [{ model: Employee, as: 'members' }]
       });
 
       if (!team) {
@@ -108,6 +91,16 @@ class TeamService {
         throw new Error('Employee not found');
       }
 
+      // Use EmployeeTeam join table directly
+      const exists = await EmployeeTeam.findOne({
+        where: { team_id: teamId, employee_id: employeeId }
+      });
+
+      if (!exists) {
+        await EmployeeTeam.create({ team_id: teamId, employee_id: employeeId });
+      }
+
+      // Update employee team_id for quick reference
       await employee.update({ team_id: teamId });
 
       return await Employee.findByPk(employeeId, {
@@ -128,6 +121,12 @@ class TeamService {
         throw new Error('Employee not found');
       }
 
+      // Remove from EmployeeTeam join table
+      await EmployeeTeam.destroy({
+        where: { employee_id: employeeId }
+      });
+
+      // Clear team_id reference
       await employee.update({ team_id: null });
 
       return { message: 'Employee removed from team successfully' };
@@ -150,9 +149,7 @@ class TeamService {
 
       await team.update({ manager_id: managerId });
 
-      return await Team.findByPk(teamId, {
-        include: [{ model: Employee, as: 'employees' }]
-      });
+      return await Team.findByPk(teamId);
     } catch (error) {
       throw new Error(error.message);
     }
@@ -166,10 +163,11 @@ class TeamService {
         throw new Error('Team not found');
       }
 
-      await Employee.update(
-        { team_id: null },
-        { where: { team_id: id } }
-      );
+      // Remove all employee-team associations
+      await EmployeeTeam.destroy({ where: { team_id: id } });
+
+      // Clear team_id from all employees
+      await Employee.update({ team_id: null }, { where: { team_id: id } });
 
       await team.destroy();
 

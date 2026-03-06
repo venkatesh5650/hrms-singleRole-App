@@ -206,3 +206,40 @@
 [2026-03-06T11:32:16.494Z] INFO: Server running on http://localhost:5000 
 [2026-03-06T11:32:16.494Z] INFO: Environment: production 
 [2026-03-06T11:32:16.494Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T14:09:11.386Z] ERROR: Failed to start server: [{"name":"SequelizeAccessDeniedError","parent":{"code":"ER_ACCESS_DENIED_ERROR","errno":1045,"sqlState":"28000","sqlMessage":"Access denied for user 'avnadmin'@'157.35.106.13' (using password: YES)"},"original":{"code":"ER_ACCESS_DENIED_ERROR","errno":1045,"sqlState":"28000","sqlMessage":"Access denied for user 'avnadmin'@'157.35.106.13' (using password: YES)"}}]
+[2026-03-06T14:11:53.633Z] ERROR: Failed to start server: [{"name":"SequelizeAccessDeniedError","parent":{"code":"ER_ACCESS_DENIED_ERROR","errno":1045,"sqlState":"28000","sqlMessage":"Access denied for user 'avnadmin'@'157.35.106.13' (using password: YES)"},"original":{"code":"ER_ACCESS_DENIED_ERROR","errno":1045,"sqlState":"28000","sqlMessage":"Access denied for user 'avnadmin'@'157.35.106.13' (using password: YES)"}}]
+[2026-03-06T14:13:56.431Z] INFO: Database connection established successfully 
+[2026-03-06T14:13:58.393Z] INFO: Database models synchronized 
+[2026-03-06T14:13:58.419Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T14:13:58.420Z] INFO: Environment: production 
+[2026-03-06T14:13:58.421Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T14:45:20.050Z] INFO: Database connection established successfully 
+[2026-03-06T14:45:26.268Z] INFO: Database models synchronized 
+[2026-03-06T14:45:26.280Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T14:45:26.281Z] INFO: Environment: production 
+[2026-03-06T14:45:26.282Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T14:53:39.585Z] INFO: Database connection established successfully 
+[2026-03-06T14:53:45.059Z] INFO: Database models synchronized 
+[2026-03-06T14:53:45.062Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T14:53:45.063Z] INFO: Environment: production 
+[2026-03-06T14:53:45.063Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T15:01:45.424Z] INFO: Database connection established successfully 
+[2026-03-06T15:01:51.045Z] INFO: Database models synchronized 
+[2026-03-06T15:01:51.048Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T15:01:51.048Z] INFO: Environment: production 
+[2026-03-06T15:01:51.049Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T15:10:13.164Z] INFO: Database connection established successfully 
+[2026-03-06T15:10:18.614Z] INFO: Database models synchronized 
+[2026-03-06T15:10:18.620Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T15:10:18.621Z] INFO: Environment: production 
+[2026-03-06T15:10:18.621Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T15:12:42.226Z] INFO: Database connection established successfully 
+[2026-03-06T15:12:47.748Z] INFO: Database models synchronized 
+[2026-03-06T15:12:47.752Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T15:12:47.752Z] INFO: Environment: production 
+[2026-03-06T15:12:47.752Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T15:15:23.776Z] INFO: Database connection established successfully 
+[2026-03-06T15:15:29.363Z] INFO: Database models synchronized 
+[2026-03-06T15:15:29.367Z] INFO: Server running on http://localhost:5000 
+[2026-03-06T15:15:29.383Z] INFO: Environment: production 
+[2026-03-06T15:15:29.383Z] INFO: API endpoint: http://localhost:5000/api/v1 

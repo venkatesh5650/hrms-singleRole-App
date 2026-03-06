@@ -1,5 +1,5 @@
-const { AuditLog, User } = require('../models');
 const { Op } = require('sequelize');
+const { AuditLog, User } = require('../models');
 
 class AuditLogService {
   async createLogEntry(logData) {
@@ -12,22 +12,15 @@ class AuditLogService {
   }
 
   async fetchLogs(options = {}) {
-  try {
-    let { page = 1, limit = 50, user_id, action, method, start_date, end_date } = options;
+    try {
+      const { page = 1, limit = 50, user_id, action, method, start_date, end_date, start_status, end_status } = options;
+      const offset = (page - 1) * limit;
 
-    page = parseInt(page, 10);
-    limit = parseInt(limit, 10);
+      const where = {};
 
-    if (isNaN(page) || page < 1) page = 1;
-    if (isNaN(limit) || limit < 1) limit = 50;
-
-    const offset = (page - 1) * limit;
-
-    const where = {};
-
-    if (user_id) {
-      where.user_id = user_id;
-    }
+      if (user_id) {
+        where.user_id = user_id;
+      }
 
       if (action) {
         where.action = { [Op.like]: `%${action}%` };
@@ -47,15 +40,20 @@ class AuditLogService {
         }
       }
 
-      
+      if (start_status !== undefined && end_status !== undefined) {
+        where.status = {
+          [Op.between]: [start_status, end_status]
+        };
+      } else if (start_status !== undefined) {
+        where.status = start_status;
+      } else if (end_status !== undefined) {
+        where.status = end_status;
+      }
 
       const { count, rows } = await AuditLog.findAndCountAll({
         where,
         limit: parseInt(limit),
         offset: parseInt(offset),
-        include: [
-          { model: User, as: 'user', attributes: ['id', 'name', 'email', 'role'] }
-        ],
         order: [['timestamp', 'DESC']]
       });
 
@@ -92,9 +90,6 @@ class AuditLogService {
 
       const logs = await AuditLog.findAll({
         where,
-        include: [
-          { model: User, as: 'user', attributes: ['id', 'name', 'email', 'role'] }
-        ],
         order: [['timestamp', 'DESC']],
         limit: 100
       });
@@ -131,11 +126,8 @@ class AuditLogService {
   async getRecentActivity(organisationId, limit = 20) {
     try {
       const logs = await AuditLog.findAll({
-        where: { organisation_id: organisationId },
+        where: { user_id: { [Op.ne]: null } },
         limit: parseInt(limit),
-        include: [
-          { model: User, as: 'user', attributes: ['id', 'name', 'email', 'role'] }
-        ],
         order: [['timestamp', 'DESC']]
       });
 

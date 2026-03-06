@@ -1,5 +1,5 @@
-const { Employee, User, Team } = require('../models');
 const { Op } = require('sequelize');
+const { User, Employee, Team, Approval, AuditLog, SupportRequest, EmployeeTeam } = require('../models');
 
 class EmployeeService {
   async listEmployees(organisationId, options = {}) {
@@ -75,7 +75,7 @@ class EmployeeService {
       const employee = await Employee.findByPk(id, {
         include: [
           { model: User, as: 'user', attributes: ['id', 'name', 'email', 'role'] },
-          { model: Team, as: 'team' }
+          { model: Team, as: 'team', attributes: ['id', 'name'] }
         ]
       });
 

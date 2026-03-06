@@ -35,7 +35,6 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    // Keep status for backward compatibility with frontend
     status: {
       type: DataTypes.INTEGER,
       allowNull: true
@@ -58,13 +57,6 @@ module.exports = (sequelize) => {
     timestamps: false,
     underscored: true
   });
-
-  AuditLog.associate = (models) => {
-    AuditLog.belongsTo(models.User, {
-      foreignKey: "user_id",
-      as: "user"
-    });
-  };
 
   return AuditLog;
 };
