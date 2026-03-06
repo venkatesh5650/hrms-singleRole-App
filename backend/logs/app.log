@@ -326,3 +326,4 @@
 [2026-03-06T17:15:05.316Z] INFO: Server running on http://localhost:5000 
 [2026-03-06T17:15:05.317Z] INFO: Environment: production 
 [2026-03-06T17:15:05.318Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-06T18:31:42.231Z] ERROR: Failed to start server: [{"name":"SequelizeConnectionRefusedError","parent":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true},"original":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}}]
