@@ -45,18 +45,23 @@ class TeamService {
         where.is_active = is_active;
       }
 
-      const { count, rows } = await Team.findAndCountAll({
+      // Get total count separately to avoid duplicate rows from joins
+      const total = await Team.count({ where });
+
+      // Get rows without include for accurate pagination
+      const rows = await Team.findAll({
         where,
         limit: parseInt(limit),
         offset: parseInt(offset),
+        include: [{ model: Employee, as: 'members', required: false }],
         order: [['created_at', 'DESC']]
       });
 
       return {
         teams: rows,
-        total: count,
+        total: total,
         page: parseInt(page),
-        totalPages: Math.ceil(count / limit)
+        totalPages: Math.ceil(total / limit)
       };
     } catch (error) {
       throw new Error(error.message);
@@ -81,6 +86,8 @@ class TeamService {
 
   async assignEmployeeToTeam(teamId, employeeId) {
     try {
+      const { EmployeeTeam } = require("../models");
+
       const team = await Team.findByPk(teamId);
       if (!team) {
         throw new Error('Team not found');
@@ -91,11 +98,12 @@ class TeamService {
         throw new Error('Employee not found');
       }
 
-      // Use EmployeeTeam join table directly
+      // Check if the relationship already exists in EmployeeTeam join table
       const exists = await EmployeeTeam.findOne({
         where: { team_id: teamId, employee_id: employeeId }
       });
 
+      // If not exists, create the relationship
       if (!exists) {
         await EmployeeTeam.create({ team_id: teamId, employee_id: employeeId });
       }
@@ -105,8 +113,8 @@ class TeamService {
 
       return await Employee.findByPk(employeeId, {
         include: [
-          { model: User, as: 'user' },
-          { model: Team, as: 'team' }
+          { model: User, as: "user" },
+          { model: Team, as: "teams" }
         ]
       });
     } catch (error) {

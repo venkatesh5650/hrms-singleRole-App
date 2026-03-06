@@ -1,37 +1,12 @@
-const { Sequelize } = require('sequelize');
-
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/database')[env];
-
-const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  {
-    host: config.host,
-    dialect: config.dialect,
-    logging: config.logging || false,
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    },
-    define: {
-      timestamps: true,
-      underscored: true,
-      freezeTableName: false
-    }
-  }
-);
+const sequelize = require('../config/database');
 
 const db = {
   sequelize,
-  Sequelize,
+  Sequelize: require('sequelize'),
   User: require('./User')(sequelize),
   Employee: require('./Employee')(sequelize),
   Team: require('./Team')(sequelize),
-  EmployeeTeam: require('./EmployeeTeam')(sequelize, Sequelize),
+  EmployeeTeam: require('./EmployeeTeam')(sequelize),
   Approval: require('./Approval')(sequelize),
   AuditLog: require('./AuditLog')(sequelize),
   SupportRequest: require('./SupportRequest')(sequelize)

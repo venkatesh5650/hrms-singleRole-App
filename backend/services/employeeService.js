@@ -25,22 +25,26 @@ class EmployeeService {
         where.team_id = team_id;
       }
 
-      const { count, rows } = await Employee.findAndCountAll({
+      // Get total count separately to avoid duplicate rows from joins
+      const total = await Employee.count({ where });
+
+      // Get rows with include for data, but count separately
+      const rows = await Employee.findAll({
         where,
         limit: parseInt(limit),
         offset: parseInt(offset),
         include: [
           { model: User, as: 'user', attributes: ['id', 'name', 'email', 'role'] },
-          { model: Team, as: 'team', attributes: ['id', 'name'] }
+          { model: Team, as: 'teams', attributes: ['id', 'name'] }
         ],
         order: [['created_at', 'DESC']]
       });
 
       return {
         employees: rows,
-        total: count,
+        total: total,
         page: parseInt(page),
-        totalPages: Math.ceil(count / limit)
+        totalPages: Math.ceil(total / limit)
       };
     } catch (error) {
       throw new Error(error.message);
@@ -62,7 +66,7 @@ class EmployeeService {
       return await Employee.findByPk(employee.id, {
         include: [
           { model: User, as: 'user' },
-          { model: Team, as: 'team' }
+          { model: Team, as: 'teams' }
         ]
       });
     } catch (error) {
@@ -75,7 +79,7 @@ class EmployeeService {
       const employee = await Employee.findByPk(id, {
         include: [
           { model: User, as: 'user', attributes: ['id', 'name', 'email', 'role'] },
-          { model: Team, as: 'team', attributes: ['id', 'name'] }
+          { model: Team, as: 'teams', attributes: ['id', 'name'] }
         ]
       });
 
@@ -102,7 +106,7 @@ class EmployeeService {
       return await Employee.findByPk(id, {
         include: [
           { model: User, as: 'user' },
-          { model: Team, as: 'team' }
+          { model: Team, as: 'teams' }
         ]
       });
     } catch (error) {

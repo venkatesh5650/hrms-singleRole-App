@@ -40,13 +40,13 @@ class AuditLogService {
         }
       }
 
-      if (start_status !== undefined && end_status !== undefined) {
+      if (start_status !== undefined && !isNaN(start_status) && end_status !== undefined && !isNaN(end_status)) {
         where.status = {
           [Op.between]: [start_status, end_status]
         };
-      } else if (start_status !== undefined) {
+      } else if (start_status !== undefined && !isNaN(start_status)) {
         where.status = start_status;
-      } else if (end_status !== undefined) {
+      } else if (end_status !== undefined && !isNaN(end_status)) {
         where.status = end_status;
       }
 

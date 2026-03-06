@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize) => {
   const EmployeeTeam = sequelize.define('EmployeeTeam', {
     id: {
       type: DataTypes.INTEGER,
@@ -9,19 +9,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     employee_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'employees',
-        key: 'id'
-      }
+      allowNull: false
     },
     team_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'teams',
-        key: 'id'
-      }
+      allowNull: false
     }
   }, {
     tableName: 'employee_teams',

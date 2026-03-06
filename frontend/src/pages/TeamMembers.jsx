@@ -21,12 +21,13 @@ function TeamMembers() {
         apiClient.get('/employees?limit=1000'),
       ]);
       setTeam(teamRes.data.data);
+      
+      // Use members from team response (via EmployeeTeam join table)
+      const teamMembersData = teamRes.data.data.members || [];
+      setTeamMembers(teamMembersData);
+      
       const allEmps = employeesRes.data.data.employees || [];
       setAllEmployees(allEmps);
-      
-      // Filter employees that belong to this team
-      const members = allEmps.filter(emp => emp.team_id === parseInt(id));
-      setTeamMembers(members);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to fetch data');
     } finally {
@@ -38,9 +39,9 @@ function TeamMembers() {
     loadMembers();
   }, [id]);
 
-  // Filter employees not already in the team
+  // Filter employees not already in the team (check teamMembers array)
   const availableEmployees = allEmployees.filter(
-    emp => !emp.team_id || emp.team_id !== parseInt(id)
+    emp => !teamMembers.some(member => member.id === emp.id)
   );
 
   const handleAddMember = async () => {

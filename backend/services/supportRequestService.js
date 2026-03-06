@@ -100,7 +100,7 @@ class SupportRequestService {
             as: 'employee',
             include: [
               { model: User, as: 'user', attributes: ['id', 'name', 'email'] },
-              { model: Team, as: 'team', attributes: ['id', 'name'] }
+              { model: Team, as: 'teams', attributes: ['id', 'name'] }
             ]
           }
         ],
@@ -128,7 +128,7 @@ class SupportRequestService {
             as: 'employee',
             include: [
               { model: User, as: 'user', attributes: ['id', 'name', 'email'] },
-              { model: Team, as: 'team', attributes: ['id', 'name'] }
+              { model: Team, as: 'teams', attributes: ['id', 'name'] }
             ]
           }
         ],
@@ -150,7 +150,7 @@ class SupportRequestService {
             as: 'employee',
             include: [
               { model: User, as: 'user', attributes: ['id', 'name', 'email'] },
-              { model: Team, as: 'team', attributes: ['id', 'name'] }
+              { model: Team, as: 'teams', attributes: ['id', 'name'] }
             ]
           }
         ]

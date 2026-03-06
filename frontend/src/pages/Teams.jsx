@@ -36,8 +36,8 @@ function Teams() {
     fetchData();
   }, []);
 
-  const getMemberCount = (teamId) => {
-    return employees.filter(emp => emp.team_id === teamId).length;
+  const getMemberCount = (team) => {
+    return team.members?.length || 0;
   };
 
   const handleSubmit = async (e) => {
@@ -170,7 +170,7 @@ function Teams() {
                     {team.name}
                   </h3>
                   <p className="text-sm text-gray-500">
-                    {getMemberCount(team.id)} members
+                    {getMemberCount(team)} members
                   </p>
                 </div>
                 <span
