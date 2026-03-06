@@ -22,7 +22,7 @@ function Login() {
       await login(email, password);
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.message || 'Invalid email or password');
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -103,6 +103,11 @@ function Login() {
             )}
           </button>
         </form>
+
+        <div className="mt-6 text-center text-sm text-gray-500">
+          <p>Demo credentials:</p>
+          <p className="font-mono text-xs mt-1">admin@hrms.com / password</p>
+        </div>
       </div>
     </div>
   );
