@@ -380,3 +380,19 @@
 [2026-03-07T06:36:12.103Z] INFO: Server running on http://localhost:5000 
 [2026-03-07T06:36:12.104Z] INFO: Environment: production 
 [2026-03-07T06:36:12.104Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T08:37:19.603Z] INFO: Database connection established successfully 
+[2026-03-07T08:37:24.969Z] INFO: Database models synchronized 
+[2026-03-07T08:37:24.979Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T08:37:24.980Z] INFO: Environment: production 
+[2026-03-07T08:37:24.980Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T08:44:31.108Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T08:44:45.095Z] INFO: Database connection established successfully 
+[2026-03-07T08:44:46.446Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T08:44:46.447Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T08:44:46.448Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T08:44:46.531Z] ERROR: Failed to start server: [{}]
+[2026-03-07T08:46:03.619Z] INFO: Database connection established successfully 
+[2026-03-07T08:46:09.541Z] INFO: Database models synchronized 
+[2026-03-07T08:46:09.553Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T08:46:09.554Z] INFO: Environment: production 
+[2026-03-07T08:46:09.555Z] INFO: API endpoint: http://localhost:5000/api/v1 

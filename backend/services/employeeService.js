@@ -85,7 +85,19 @@ class EmployeeService {
         employeeData.role = 'Employee';
       }
 
+      // Extract team_id before creating employee
+      const { team_id } = employeeData;
+      delete employeeData.team_id;
+
       const employee = await Employee.create(employeeData);
+
+      // If team_id was provided, add employee to team via EmployeeTeam
+      if (team_id) {
+        await EmployeeTeam.create({
+          employee_id: employee.id,
+          team_id: team_id
+        });
+      }
 
       return await Employee.findByPk(employee.id, {
         include: [
