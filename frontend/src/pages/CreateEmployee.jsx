@@ -9,7 +9,7 @@ function CreateEmployee() {
     last_name: '',
     email: '',
     phone: '',
-    role: 'EMPLOYEE',
+    role: 'Employee',
     team_id: '',
   });
   const [teams, setTeams] = useState([]);
@@ -138,10 +138,8 @@ function CreateEmployee() {
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="EMPLOYEE">Employee</option>
-              <option value="MANAGER">Manager</option>
-              <option value="HR">HR</option>
-              <option value="ADMIN">Admin</option>
+              <option value="Employee">Employee</option>
+              <option value="Manager">Manager</option>
             </select>
           </div>
 

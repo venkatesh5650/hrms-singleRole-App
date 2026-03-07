@@ -15,9 +15,34 @@ class EmployeeController {
 
       const result = await employeeService.listEmployees(organisation_id, options);
 
+      // Ensure all fields are included with role
+      const employeesWithRole = result.employees.map(function(emp) {
+        return {
+          id: emp.id,
+          organisation_id: emp.organisation_id,
+          user_id: emp.user_id,
+          first_name: emp.first_name,
+          last_name: emp.last_name,
+          email: emp.email,
+          phone: emp.phone,
+          role: emp.role || 'Employee',
+          team_id: emp.team_id,
+          is_active: emp.is_active,
+          createdAt: emp.createdAt,
+          updatedAt: emp.updatedAt,
+          user: emp.user,
+          teams: emp.teams
+        };
+      });
+
       res.status(HTTP_STATUS.OK).json({
         success: true,
-        data: result
+        data: {
+          employees: employeesWithRole,
+          total: result.total,
+          page: result.page,
+          totalPages: result.totalPages
+        }
       });
     } catch (error) {
       res.status(HTTP_STATUS.INTERNAL_ERROR).json({

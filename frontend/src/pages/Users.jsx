@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import apiClient from '../services/api';
 
 function Users() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,6 +39,19 @@ function Users() {
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= pagination.totalPages) {
       fetchUsers(newPage);
+    }
+  };
+
+  const handleDelete = async (userId) => {
+    if (!window.confirm('Are you sure you want to delete this user?')) {
+      return;
+    }
+    
+    try {
+      await apiClient.delete(`/users/${userId}`);
+      fetchUsers(pagination.page);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to delete user');
     }
   };
 
@@ -129,10 +144,16 @@ function Users() {
                         {user.organisation_id || '--'}
                       </td>
                       <td className="px-6 py-4">
-                        <button className="text-blue-600 hover:text-blue-800 mr-3 text-sm">
+                        <button 
+                          onClick={() => navigate(`/users/${user.id}/edit`)}
+                          className="text-blue-600 hover:text-blue-800 mr-3 text-sm"
+                        >
                           Edit
                         </button>
-                        <button className="text-red-600 hover:text-red-800 text-sm">
+                        <button 
+                          onClick={() => handleDelete(user.id)}
+                          className="text-red-600 hover:text-red-800 text-sm"
+                        >
                           Delete
                         </button>
                       </td>

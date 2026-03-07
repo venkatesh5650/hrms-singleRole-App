@@ -48,10 +48,10 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.clear();
     setToken(null);
     setUser(null);
+    window.location.href = '/login';
   };
 
   const isAuthenticated = !!token && !!user;

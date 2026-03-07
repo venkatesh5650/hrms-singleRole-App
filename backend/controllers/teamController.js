@@ -102,8 +102,8 @@ class TeamController {
 
   async removeEmployeeFromTeam(req, res) {
     try {
-      const { employeeId } = req.params;
-      await teamService.removeEmployeeFromTeam(employeeId);
+      const { teamId, employeeId } = req.params;
+      await teamService.removeEmployeeFromTeam(teamId, employeeId);
 
       res.status(HTTP_STATUS.OK).json({
         success: true,

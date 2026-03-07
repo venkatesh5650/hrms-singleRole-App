@@ -9,6 +9,9 @@ function Teams() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [showManagerModal, setShowManagerModal] = useState(false);
+  const [selectedTeam, setSelectedTeam] = useState(null);
+  const [assigningManager, setAssigningManager] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -61,6 +64,45 @@ function Teams() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const openAddManagerModal = (team) => {
+    setSelectedTeam(team);
+    setShowManagerModal(true);
+  };
+
+  const handleAssignManager = async (managerId) => {
+    if (!selectedTeam || !managerId) return;
+    
+    setAssigningManager(true);
+    try {
+      await apiClient.post(`/teams/${selectedTeam.id}/manager/${managerId}`);
+      setShowManagerModal(false);
+      setSelectedTeam(null);
+      fetchData();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to assign manager');
+    } finally {
+      setAssigningManager(false);
+    }
+  };
+
+  const handleRemoveManager = async (team) => {
+    if (!team || !team.manager) return;
+    
+    if (!window.confirm(`Remove ${team.manager.first_name} ${team.manager.last_name} as manager of ${team.name}?`)) {
+      return;
+    }
+    
+    try {
+      await apiClient.put(`/teams/${team.id}`, { manager_id: null });
+      fetchData();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to remove manager');
+    }
+  };
+
+  // Get employees with Manager role for assignment
+  const managerEmployees = employees.filter(emp => emp.role === 'Manager');
 
   return (
     <div>
@@ -183,10 +225,40 @@ function Teams() {
                   {team.is_active ? 'Active' : 'Inactive'}
                 </span>
               </div>
+              
+              {/* Manager Info */}
+              <div className="mb-3 p-3 bg-gray-50 rounded-lg">
+                <p className="text-xs font-medium text-gray-500 uppercase mb-1">Manager</p>
+                {team.manager ? (
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-medium text-gray-800">
+                      {team.manager.first_name} {team.manager.last_name}
+                    </p>
+                    <button
+                      onClick={() => handleRemoveManager(team)}
+                      className="text-xs px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition-colors"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-gray-400 italic">No manager assigned</p>
+                    <button
+                      onClick={() => openAddManagerModal(team)}
+                      className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 transition-colors"
+                    >
+                      + Add Manager
+                    </button>
+                  </div>
+                )}
+              </div>
+              
               {team.description && (
                 <p className="text-sm text-gray-600 mb-4">{team.description}</p>
               )}
-              <div className="flex gap-4">
+              
+              <div className="flex flex-wrap gap-3">
                 <button 
                   onClick={() => navigate(`/teams/${team.id}/edit`)}
                   className="text-sm text-blue-600 hover:text-blue-800"
@@ -204,6 +276,54 @@ function Teams() {
           ))
         )}
       </div>
+
+      {/* Add Manager Modal */}
+      {showManagerModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
+            <div className="p-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                Add Manager to {selectedTeam?.name}
+              </h3>
+              
+              {managerEmployees.length === 0 ? (
+                <div className="text-center py-6">
+                  <p className="text-gray-500 mb-2">No employees with Manager role found.</p>
+                  <p className="text-sm text-gray-400">Create employees with Manager role to assign them as team managers.</p>
+                </div>
+              ) : (
+                <div className="space-y-2 max-h-64 overflow-y-auto">
+                  {managerEmployees.map((emp) => (
+                    <button
+                      key={emp.id}
+                      onClick={() => handleAssignManager(emp.id)}
+                      disabled={assigningManager}
+                      className="w-full p-3 text-left border border-gray-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 transition-colors disabled:opacity-50"
+                    >
+                      <p className="font-medium text-gray-800">
+                        {emp.first_name} {emp.last_name}
+                      </p>
+                      <p className="text-sm text-gray-500">{emp.email}</p>
+                    </button>
+                  ))}
+                </div>
+              )}
+              
+              <div className="mt-4 flex justify-end">
+                <button
+                  onClick={() => {
+                    setShowManagerModal(false);
+                    setSelectedTeam(null);
+                  }}
+                  className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

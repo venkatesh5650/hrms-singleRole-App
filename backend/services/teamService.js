@@ -57,8 +57,30 @@ class TeamService {
         order: [['created_at', 'DESC']]
       });
 
+      // Get manager information for each team
+      const teamsWithManager = await Promise.all(rows.map(async (team) => {
+        const teamData = team.toJSON();
+        
+        // Get manager details if manager_id exists
+        if (team.manager_id) {
+          const manager = await Employee.findByPk(team.manager_id, {
+            attributes: ['id', 'first_name', 'last_name', 'email']
+          });
+          teamData.manager = manager ? {
+            id: manager.id,
+            first_name: manager.first_name,
+            last_name: manager.last_name,
+            email: manager.email
+          } : null;
+        } else {
+          teamData.manager = null;
+        }
+        
+        return teamData;
+      }));
+
       return {
-        teams: rows,
+        teams: teamsWithManager,
         total: total,
         page: parseInt(page),
         totalPages: Math.ceil(total / limit)
@@ -122,20 +144,30 @@ class TeamService {
     }
   }
 
-  async removeEmployeeFromTeam(employeeId) {
+  async removeEmployeeFromTeam(teamId, employeeId) {
     try {
       const employee = await Employee.findByPk(employeeId);
       if (!employee) {
         throw new Error('Employee not found');
       }
 
-      // Remove from EmployeeTeam join table
+      // Remove from EmployeeTeam join table for THIS SPECIFIC TEAM only
       await EmployeeTeam.destroy({
+        where: { employee_id: employeeId, team_id: teamId }
+      });
+
+      // Check if employee is still in any other teams
+      const remainingTeams = await EmployeeTeam.findAll({
         where: { employee_id: employeeId }
       });
 
-      // Clear team_id reference
-      await employee.update({ team_id: null });
+      // Only clear team_id if employee is not in any team
+      if (remainingTeams.length === 0) {
+        await employee.update({ team_id: null });
+      } else {
+        // Update to the first remaining team
+        await employee.update({ team_id: remainingTeams[0].team_id });
+      }
 
       return { message: 'Employee removed from team successfully' };
     } catch (error) {

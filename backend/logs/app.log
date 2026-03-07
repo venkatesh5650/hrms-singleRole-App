@@ -327,3 +327,56 @@
 [2026-03-06T17:15:05.317Z] INFO: Environment: production 
 [2026-03-06T17:15:05.318Z] INFO: API endpoint: http://localhost:5000/api/v1 
 [2026-03-06T18:31:42.231Z] ERROR: Failed to start server: [{"name":"SequelizeConnectionRefusedError","parent":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true},"original":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}}]
+[2026-03-07T04:10:46.515Z] ERROR: Failed to start server: [{"name":"SequelizeConnectionRefusedError","parent":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true},"original":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}}]
+[2026-03-07T04:16:38.289Z] ERROR: Failed to start server: [{"name":"SequelizeConnectionRefusedError","parent":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true},"original":{"errno":-111,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":3306,"fatal":true}}]
+[2026-03-07T04:20:28.724Z] INFO: Database connection established successfully 
+[2026-03-07T04:20:35.934Z] INFO: Database models synchronized 
+[2026-03-07T04:20:35.947Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T04:20:35.948Z] INFO: Environment: production 
+[2026-03-07T04:20:35.949Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T04:27:26.747Z] INFO: Database connection established successfully 
+[2026-03-07T04:27:33.464Z] INFO: Database models synchronized 
+[2026-03-07T04:27:33.467Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T04:27:33.468Z] INFO: Environment: production 
+[2026-03-07T04:27:33.468Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T05:11:31.951Z] INFO: Database connection established successfully 
+[2026-03-07T05:11:38.633Z] INFO: Database models synchronized 
+[2026-03-07T05:11:38.636Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T05:11:38.636Z] INFO: Environment: production 
+[2026-03-07T05:11:38.636Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T05:53:13.549Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T05:55:46.692Z] INFO: Database connection established successfully 
+[2026-03-07T05:55:53.081Z] INFO: Database models synchronized 
+[2026-03-07T05:55:53.086Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T05:55:53.086Z] INFO: Environment: production 
+[2026-03-07T05:55:53.087Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T06:09:34.545Z] INFO: Database connection established successfully 
+[2026-03-07T06:09:41.009Z] INFO: Database models synchronized 
+[2026-03-07T06:09:41.012Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T06:09:41.012Z] INFO: Environment: production 
+[2026-03-07T06:09:41.012Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T06:09:48.053Z] INFO: Database connection established successfully 
+[2026-03-07T06:09:51.255Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T06:09:51.255Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T06:09:51.287Z] ERROR: Failed to start server: [{}]
+[2026-03-07T06:12:45.230Z] INFO: Database connection established successfully 
+[2026-03-07T06:12:47.763Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T06:12:47.804Z] ERROR: Failed to start server: [{}]
+[2026-03-07T06:13:11.913Z] INFO: Database connection established successfully 
+[2026-03-07T06:13:14.661Z] INFO: SIGTERM received. Closing HTTP server... 
+[2026-03-07T06:13:14.703Z] ERROR: Failed to start server: [{}]
+[2026-03-07T06:14:44.571Z] INFO: Database connection established successfully 
+[2026-03-07T06:14:51.046Z] INFO: Database models synchronized 
+[2026-03-07T06:14:51.052Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T06:14:51.052Z] INFO: Environment: production 
+[2026-03-07T06:14:51.052Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T06:23:44.488Z] INFO: Database connection established successfully 
+[2026-03-07T06:23:50.578Z] INFO: Database models synchronized 
+[2026-03-07T06:23:50.587Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T06:23:50.588Z] INFO: Environment: production 
+[2026-03-07T06:23:50.589Z] INFO: API endpoint: http://localhost:5000/api/v1 
+[2026-03-07T06:36:05.061Z] INFO: Database connection established successfully 
+[2026-03-07T06:36:12.097Z] INFO: Database models synchronized 
+[2026-03-07T06:36:12.103Z] INFO: Server running on http://localhost:5000 
+[2026-03-07T06:36:12.104Z] INFO: Environment: production 
+[2026-03-07T06:36:12.104Z] INFO: API endpoint: http://localhost:5000/api/v1 

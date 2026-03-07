@@ -10,39 +10,52 @@ import Teams from '../pages/Teams';
 import EditTeam from '../pages/EditTeam';
 import TeamMembers from '../pages/TeamMembers';
 import Users from '../pages/Users';
+import EditUser from '../pages/EditUser';
 import Approvals from '../pages/Approvals';
 import Logs from '../pages/Logs';
 
 function AppRouter() {
+  const token = localStorage.getItem("token");
+
   return (
     <Routes>
-      {/* Public routes */}
-      <Route path="/login" element={<Login />} />
+      {/* Public route */}
+      <Route
+  path="/login"
+  element={
+    localStorage.getItem("token")
+      ? <Navigate to="/dashboard" replace />
+      : <Login />
+  }
+/>
 
       {/* Protected routes */}
-      <Route
-        path="/"
-        element={
-          <ProtectedRoute>
-            <Layout />
-          </ProtectedRoute>
-        }
-      >
-        <Route index element={<Navigate to="/dashboard" replace />} />
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="employees" element={<Employees />} />
-        <Route path="employees/new" element={<CreateEmployee />} />
-        <Route path="employees/:id/edit" element={<EditEmployee />} />
-        <Route path="teams" element={<Teams />} />
-        <Route path="teams/:id/edit" element={<EditTeam />} />
-        <Route path="teams/:id/members" element={<TeamMembers />} />
-        <Route path="users" element={<Users />} />
-        <Route path="approvals" element={<Approvals />} />
-        <Route path="logs" element={<Logs />} />
+      <Route element={<ProtectedRoute />}>
+        <Route element={<Layout />}>
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="employees" element={<Employees />} />
+          <Route path="employees/new" element={<CreateEmployee />} />
+          <Route path="employees/:id/edit" element={<EditEmployee />} />
+          <Route path="teams" element={<Teams />} />
+          <Route path="teams/:id/edit" element={<EditTeam />} />
+          <Route path="teams/:id/members" element={<TeamMembers />} />
+          <Route path="users" element={<Users />} />
+          <Route path="users/:id/edit" element={<EditUser />} />
+          <Route path="approvals" element={<Approvals />} />
+          <Route path="logs" element={<Logs />} />
+        </Route>
       </Route>
 
-      {/* Catch all - redirect to dashboard */}
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      {/* Catch-all route */}
+      <Route
+        path="*"
+        element={
+          token
+            ? <Navigate to="/dashboard" replace />
+            : <Navigate to="/login" replace />
+        }
+      />
     </Routes>
   );
 }

@@ -40,8 +40,27 @@ class EmployeeService {
         order: [['created_at', 'DESC']]
       });
 
+      // Get all team managers to determine if employee is a manager
+      const teams = await Team.findAll({
+        attributes: ['manager_id'],
+        where: { manager_id: { [Op.ne]: null } }
+      });
+      const managerIds = new Set(teams.map(t => t.manager_id));
+
+      // Map employees with computed role
+      const employees = rows.map(emp => {
+        const empData = emp.toJSON();
+        // If employee is a manager of any team, set role to Manager
+        if (managerIds.has(empData.id)) {
+          empData.role = 'Manager';
+        } else if (!empData.role) {
+          empData.role = 'Employee';
+        }
+        return empData;
+      });
+
       return {
-        employees: rows,
+        employees: employees,
         total: total,
         page: parseInt(page),
         totalPages: Math.ceil(total / limit)
@@ -59,6 +78,11 @@ class EmployeeService {
 
       if (existingEmployee) {
         throw new Error('Employee with this email already exists');
+      }
+
+      // Set default role if not provided
+      if (!employeeData.role) {
+        employeeData.role = 'Employee';
       }
 
       const employee = await Employee.create(employeeData);

@@ -89,7 +89,7 @@ function Employees() {
           </div>
         ) : (
           <>
-            <table className="w-full min-w-[800px]">
+            <table className="w-full min-w-[900px]">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
@@ -100,6 +100,9 @@ function Employees() {
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                     Phone
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Role
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                     Status
@@ -116,7 +119,7 @@ function Employees() {
                 {employees.length === 0 ? (
                   <tr>
                     <td
-                      colSpan="6"
+                      colSpan="7"
                       className="px-6 py-8 text-center text-gray-500"
                     >
                       No employees found
@@ -145,16 +148,27 @@ function Employees() {
                       <td className="px-6 py-4">
                         <span
                           className={`px-2 py-1 text-xs font-medium rounded-full ${
+                            employee.role === 'Manager'
+                              ? 'bg-purple-100 text-purple-800'
+                              : 'bg-gray-100 text-gray-800'
+                          }`}
+                        >
+                          {employee.role || 'Employee'}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <span
+                          className={`px-2 py-1 text-xs font-medium rounded-full ${
                             employee.is_active
                               ? 'bg-green-100 text-green-800'
-                              : 'bg-gray-100 text-gray-800'
+                              : 'bg-gray-100 text-gray-600'
                           }`}
                         >
                           {employee.is_active ? 'Active' : 'Inactive'}
                         </span>
                       </td>
                       <td className="px-6 py-4 text-gray-600">
-                        {formatDate(employee.created_at)}
+                        {employee.createdAt ? new Date(employee.createdAt).toLocaleString() : '--'}
                       </td>
                       <td className="px-6 py-4">
                         <button 
