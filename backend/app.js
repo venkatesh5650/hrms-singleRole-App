@@ -13,10 +13,14 @@ const app = express();
 app.use(helmet());
 
 // CORS configuration
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+    "http://localhost:3000",
+    "https://hrms-single-role-app.vercel.app"
+  ],
+  methods: ["GET","POST","PUT","DELETE","PATCH"],
+  allowedHeaders: ["Content-Type","Authorization"]
 }));
 
 // Body parsing middleware
