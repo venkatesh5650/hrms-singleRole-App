@@ -20,14 +20,16 @@ async function startServer() {
 
     // Start server
     app.listen(PORT, () => {
-  logger.info(`Server running on http://localhost:${PORT}`);
-  logger.info(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  logger.info(`API endpoint: http://localhost:${PORT}/api/v1`);
-});
+      console.log(`Server running on port ${PORT}`);
+      console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+      console.log(`API endpoint: /api/v1`);
+    });
 
   } catch (error) {
-    logger.error('Failed to start server:', error);
+
+    console.error("SERVER START ERROR:", error);
     process.exit(1);
+
   }
 }
 
