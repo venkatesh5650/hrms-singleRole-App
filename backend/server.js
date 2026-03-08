@@ -27,7 +27,10 @@ async function startServer() {
 
   } catch (error) {
 
-    console.error("SERVER START ERROR:", error);
+    console.log("SERVER START ERROR");
+    console.log(error);
+    console.log("STACK:", error.stack);
+
     process.exit(1);
 
   }
