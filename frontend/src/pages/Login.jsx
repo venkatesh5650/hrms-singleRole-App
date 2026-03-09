@@ -14,6 +14,8 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
+
     setLoading(true);
     setErrorModalOpen(false);
 
@@ -58,7 +60,7 @@ function Login() {
           <p className="text-gray-500 mt-2">Sign in to your account</p>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           {/* Email Field */}
           <div className="mb-5">
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -103,7 +105,8 @@ function Login() {
 
           {/* Login Button */}
           <button
-            type="submit"
+            type="button"
+	    onClick={handleSubmit}
             disabled={loading}
             className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
