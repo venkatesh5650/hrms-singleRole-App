@@ -14,7 +14,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    e.stopPropagation();
+   
 
     setLoading(true);
     setErrorModalOpen(false);
@@ -33,10 +33,10 @@ function Login() {
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      // Small delay to ensure localStorage update is applied before navigation
-      setTimeout(() => {
+      
+      
         navigate("/dashboard", { replace: true });
-      }, 50);
+     
     } catch (error) {
       console.error("Login error:", error);
 
@@ -60,7 +60,7 @@ function Login() {
           <p className="text-gray-500 mt-2">Sign in to your account</p>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Email Field */}
           <div className="mb-5">
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -105,8 +105,8 @@ function Login() {
 
           {/* Login Button */}
           <button
-            type="button"
-	    onClick={handleSubmit}
+            type="submit"
+            onClick={handleSubmit}
             disabled={loading}
             className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
@@ -119,7 +119,7 @@ function Login() {
       {errorModalOpen && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40"
-          onClick={() => setErrorModalOpen(false)}
+          
         >
           <div
             className="bg-white rounded-lg p-6 shadow-lg w-80 text-center"
