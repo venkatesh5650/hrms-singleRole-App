@@ -17,10 +17,10 @@ async function startServer() {
     console.log('Database models synchronized');
 
     // Start server
-    app.listen(PORT, HOST, () => {
-      console.log(`Server running on http://${HOST}:${PORT}`);
-      console.log(`API endpoint: http://${HOST}:${PORT}/api/v1`);
-    });
+    app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(`API endpoint: /api/v1`);
+});
 
   } catch (error) {
     console.error("SERVER START ERROR:", error.message);
